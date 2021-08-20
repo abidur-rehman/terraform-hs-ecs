@@ -1,0 +1,15 @@
+# Terraform files
+terraform.tfstate
+terraform.tfstate.backup
+
+# Others
+*~
+*.swp
+*.DS_Store
+*.iml
+.terraform/
+.gitsecret
+vpc_deployment/.terraform/
+vpc_deployment/.terraform.lock.hcl
+
+.gitsecret/keys/random_seed
