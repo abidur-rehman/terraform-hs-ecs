@@ -21,7 +21,7 @@ name_prefix_laparts = "laparts"
 ssl_certificate = "arn:aws:acm:eu-west-2:044970577237:certificate/ca0c7b32-42bb-4d7e-a7e8-2f39fcf8ef63"
 
 # asg config values
-instance_type = "t2.micro"
+instance_type = "t2.nano"
 ec2_key_name = "hostservice_ec2_key"
 // increased to 2 coz of laparts-deployment
 desired_capacity_on_demand = 1

@@ -85,6 +85,7 @@ data "template_file" "task_hs_ts_apps" {
 }
 
 /* ECS service definition for laparts apps */
+/*
 resource "aws_ecs_service" "hs_laparts_apps_service" {
   name = "${var.name_prefix}_${var.environment}_laparts_apps_service"
   cluster = aws_ecs_cluster.hs_test_cluster.id
@@ -92,7 +93,7 @@ resource "aws_ecs_service" "hs_laparts_apps_service" {
   desired_count = var.count_webapp
   deployment_minimum_healthy_percent = var.minimum_healthy_percent_webapp
   //    iam_role = "${var.ecs_service_role}"
-  
+
   load_balancer {
     target_group_arn = var.laparts_api_app_alb_tg_arn
     container_name = "laparts-api-app"
@@ -168,3 +169,4 @@ data "template_file" "task_hs_laparts_apps" {
     razzle_paypal_client_id = var.razzle_paypal_client_id
   }
 }
+*/

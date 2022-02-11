@@ -40,7 +40,7 @@ resource "aws_autoscaling_schedule" "hs_on_demand_as_up" {
   min_size               = 0
   max_size               = 2
   desired_capacity       = var.desired_capacity_on_demand
-  recurrence             = "00 08 * * *"
+  recurrence             = "00 20 * * *"
   autoscaling_group_name = aws_autoscaling_group.hs_on_demand_gp.name
 }
 

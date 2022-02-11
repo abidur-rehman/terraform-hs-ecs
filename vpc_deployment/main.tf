@@ -32,6 +32,7 @@ module "vpc_security_groups" {
   vpc_id = module.vpc.vpc_id
 }
 
+/*
 module "rds" {
   source = "../modules/rds_from_snapshot"
   environment = local.environment
@@ -45,6 +46,7 @@ module "rds" {
   username = var.username
   password = var.password
 }
+*/
 
 module "alb" {
   source = "../modules/alb"
@@ -70,18 +72,19 @@ module "ecs" {
   minimum_healthy_percent_webapp = var.minimum_healthy_percent_webapp
   ts_api_app_alb_tg_arn = module.alb.ts_api_app_alb_tg_arn
   ts_app_alb_tg_arn = module.alb.ts_app_alb_tg_arn
-  laparts_api_app_alb_tg_arn = module.alb.laparts_api_app_alb_tg_arn
-  laparts_app_alb_tg_arn = module.alb.laparts_app_alb_tg_arn
+  //aparts_api_app_alb_tg_arn = module.alb.laparts_api_app_alb_tg_arn
+  //laparts_app_alb_tg_arn = module.alb.laparts_app_alb_tg_arn
   ts_api_app_docker_image_name = var.ts_api_app_docker_image_name
   ts_api_app_docker_image_tag = local.environment
   ts_app_docker_image_name = var.ts_app_docker_image_name
   ts_app_docker_image_tag = local.environment
+  razzle_env = local.environment
+  /* laparts config removed
   laparts_api_app_docker_image_name = var.laparts_api_app_docker_image_name
   laparts_api_app_docker_image_tag = var.laparts_api_app_docker_image_tag
   database_url = module.rds.rds_endpoint
   database_user = var.database_user
   database_password = var.database_password
-  razzle_env = local.environment
   laparts_app_docker_image_name = var.laparts_app_docker_image_name
   laparts_app_docker_image_tag = var.laparts_app_docker_image_tag
   paypal_client_id = var.paypal_client_id
@@ -91,6 +94,7 @@ module "ecs" {
   razzle_google_api_key = var.razzle_google_api_key
   razzle_google_client_id = var.razzle_google_client_id
   razzle_paypal_client_id = var.razzle_paypal_client_id
+  */
 }
 
 
@@ -126,5 +130,13 @@ module "route53" {
   name_prefix_ts = var.name_prefix_ts
   alb_dns_name = module.alb.alb_dns_name
   alb_dns_zone_id = module.alb.alb_dns_zone_id
+}
+*/
+
+/* This is not needed as its achieved using aws_autoscaling_schedule
+module "lambda" {
+  source = "../modules/lambda"
+  environment = local.environment
+  name_prefix = var.name_prefix
 }
 */
