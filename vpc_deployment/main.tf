@@ -107,7 +107,7 @@ module "asg" {
   ec2_key_name = var.ec2_key_name
   hs_instances_sg_id = module.vpc_security_groups.hs_instances_sg_id
   desired_capacity_on_demand = var.desired_capacity_on_demand
-  subnet_ids_pri = module.vpc.subnet_ids_pri
+  subnet_ids_pri = module.vpc.subnet_ids_pub
   compliance_tags = local.common_tags
   cluster_name = module.ecs.cluster_name
   txt_config_type = var.txt_config_type
